@@ -1,6 +1,6 @@
-# omikuji_app_2022
+# omikuji_app_2023
 
 ## アクセス
-url: https://hirokisato825.github.io/omikuji_app_2022/omikuji-app/index.html
+url: https://hirokisato825.github.io/omikuji_app_2023/omikuji-app/index.html
   
-short_url: https://bit.ly/3qkcd4L
+short_url: 

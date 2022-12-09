@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>2022-THE-OMIKUJI</title>
+    <link rel="icon" type="image/x-icon" href="./icon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon-180x180.png">
+
+    <style type="text/css">
+body {
+  background-color: lightgray;
+  background-image: url('./images/shougatu_back_image1.jpg');
+  background-size: auto;
+  width: 95%;
+  height: 95%;
+}
+
+#scene {
+  
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  padding: 15px 30px;
+	/*background: rgba(0,0,0,0.4);*/
+	color: #fff;
+	text-align: center;
+}
+
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 18pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #000066;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #000066;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+/*ルーレット用*/
+.roulette {
+  display: inline-block;
+  width:400px;
+}
+
+/*結果画面用*/
+#result {
+  /*width: 95%;*/
+  /*height: 95%;*/
+}
+
+
+    </style>
+    <script type="text/javascript">
+     var roulette;
+     
+     function test() {
+       alert("test");
+     }
+     
+     // スタートボタンクリック処理
+     function btnClick(obj){
+        // alert(obj.value);
+        
+        document.getElementById("scene").innerHTML = `
+          <div class="roulette" id="roulette"><img src="./images/nenga_mark05_tsuru.png" width="300px" height="300px"></div>
+          <input type="button" value="ストップ" class="button" onclick="stopRoulette();"/>`;
+      
+        startRoulette();
+     }
+     
+     // 画像ルーレット処理
+     function startRoulette() {
+       
+        var imglist = {
+          1:"nenga_mark03_ume.png",
+          2:"nenga_mark04_tai.png",
+          3:"nenga_mark05_tsuru.png",
+          4:"nenga_mark07_fujisan.png",
+          5:"nenga_mark11_hagoita.png",
+          6:"nenga_mark11_hagoita.png",
+          7:"nenga_mark16_koduchi.png",
+          8:"nenga_mark18_kadomatsu.png",
+          9:"nenga_mark22_shishimai.png",
+          10:"nenga_mark22_shishimai.png",
+        };
+       
+        roulette = setInterval(function() {
+          // 1〜99の範囲でランダムな数値を作成
+          var idx = Math.floor( Math.random() * 99 ) + 1;
+          if(idx < 10){
+            var num = 1;
+          }else if(idx < 20){
+            var num = 2;
+          }else if(idx < 30){
+            var num = 3;
+          }else if(idx < 40){
+            var num = 4;
+          }else if(idx < 50){
+            var num = 5;
+          }else if(idx < 60){
+            var num = 6;
+          }else if(idx < 70){
+            var num = 7;
+          }else if(idx < 80){
+            var num = 8;
+          }else if(idx < 90){
+            var num = 9;
+          }else{
+            var num = 10;
+          }
+          var output = "<img src=" + './images/' + imglist[num] + " width='300px' height='300px'>";
+          // ルーレット
+          document.getElementById("roulette").innerHTML = output;
+        }, 100);
+     }
+     
+     
+     // ストップ処理
+     function stopRoulette() {
+       clearInterval(roulette);
+       
+       var imglist = {
+          1:"dai_kichi.png",
+          2:"chu_kichi.png",
+          3:"shou_kichi.png",
+          4:"kichi.png",
+          5:"sue_kichi.png",
+          6:"kyo.png",
+          7:"dai_kyo.png",
+        };
+       
+        // 1〜99の範囲でランダムな数値を作成
+        var idx = Math.floor( Math.random() * 99 ) + 1;
+        
+        console.log(idx);
+        
+        var res = 0;
+        
+        if(idx < 15){
+          res = 1;
+        }else if(idx < 30){
+          res = 2;
+        }else if(idx < 45){
+          res = 3;
+        }else if(idx < 65){
+          res = 4;
+        }else if(idx < 80){
+          res = 5;
+        }else if(idx < 90){
+          res = 6;
+        }else {
+          res = 7;
+        }
+        
+        var output = "<div id=\"result\"><img src=" + './images/result/' + imglist[res] + "></div>" + "<br/>"
+        + "<input type=\"button\" class=\"button\" name=\"startButton\" value=\"もう一度引く\" onclick=\"retry()\" />";
+          // 結果表示処理
+          document.getElementById("scene").innerHTML = output;
+     }
+     
+     // リトライ処理
+     function retry() {
+         document.getElementById("scene").innerHTML = `
+         <img id=\"start-img\" src=\"./images/usagi_top.png\">
+         <input type=\"button\" class=\"button\" name=\"startButton\" value=\"おみくじを引く\" onclick=\"btnClick(this)\" />
+         `;
+     }
+     
+     
+
+    </script>
+</head>
+<body>
+<div id="scene">
+    <img id="start-img" src="./images/usagi_top.png">
+    <input type="button" class="button" name="startButton" value="おみくじを引く" onclick="btnClick(this)"/>
+</div>
+</body>
+</html>

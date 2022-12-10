@@ -32,11 +32,6 @@ img#start-img {
     height: auto;
 }
 
-img#roulette-img {
-    width: 500px;
-    height: auto;
-}
-
 img#result-img {
     width: 850px;
     height: auto;
@@ -136,7 +131,7 @@ img#result-img {
           }else{
             var num = 10;
           }
-          var output = "<img id=\"roulette-img\" src=" + './images/' + imglist[num] + ">";
+          var output = "<img id=\"roulette-img\" src=" + './images/' + imglist[num] + " width='500px' height='500px'>";
           // ルーレット
           document.getElementById("roulette").innerHTML = output;
         }, 100);

@@ -143,13 +143,13 @@ img#result-img {
        clearInterval(roulette);
        
        var imglist = {
-          1:"dai_kichi.drawio.png",
-          2:"chu_kichi.drawio.png",
-          3:"shou_kichi.drawio.png",
-          4:"kichi.drawio.png",
-          5:"sue_kichidrawio..png",
-          6:"kyo.drawio.png",
-          7:"dai_kyo.drawio.png",
+          1:"dai_kichi.PNG",
+          2:"chu_kichi.PNG",
+          3:"sho_kichi.PNG",
+          4:"kichi.PNG",
+          5:"sue_kichi.PNG",
+          6:"kyo.PNG",
+          7:"dai_kyo.PNG",
         };
        
         // 1〜99の範囲でランダムな数値を作成
@@ -175,8 +175,8 @@ img#result-img {
           res = 7;
         }
         
-        //var output = "<div id=\"result\"><img id=\"result-img\" src=" + './images/result/2025/' + imglist[res] + "></div>" + "<br/>"
-        var output = "<div id=\"result\"><img id=\"result-img\" src=" + './images/result/2025/chu_kichi.png' + "></div>" + "<br/>"
+        var output = "<div id=\"result\"><img id=\"result-img\" src=" + './images/result/2025/' + imglist[res] + "></div>" + "<br/>"
+        //var output = "<div id=\"result\"><img id=\"result-img\" src=" + './images/result/2025/chu_kichi.png' + "></div>" + "<br/>"
         + "<input type=\"button\" class=\"button\" name=\"startButton\" value=\"もう一度引く\" onclick=\"retry()\" />";
           // 結果表示処理
           document.getElementById("scene").innerHTML = output;

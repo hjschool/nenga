@@ -143,13 +143,13 @@ img#result-img {
        clearInterval(roulette);
        
        var imglist = {
-          1:"dai_kichi.png",
-          2:"chu_kichi.png",
-          3:"shou_kichi.png",
-          4:"kichi.png",
-          5:"sue_kichi.png",
-          6:"kyo.png",
-          7:"dai_kyo.png",
+          1:"dai_kichi.drawio.png",
+          2:"chu_kichi.drawio.png",
+          3:"shou_kichi.drawio.png",
+          4:"kichi.drawio.png",
+          5:"sue_kichidrawio..png",
+          6:"kyo.drawio.png",
+          7:"dai_kyo.drawio.png",
         };
        
         // 1〜99の範囲でランダムな数値を作成
@@ -175,7 +175,8 @@ img#result-img {
           res = 7;
         }
         
-        var output = "<div id=\"result\"><img id=\"result-img\" src=" + './images/result/' + imglist[res] + "></div>" + "<br/>"
+        //var output = "<div id=\"result\"><img id=\"result-img\" src=" + './images/result/2025/' + imglist[res] + "></div>" + "<br/>"
+        var output = "<div id=\"result\"><img id=\"result-img\" src=" + './images/result/2025/chu_kichi.png' + "></div>" + "<br/>"
         + "<input type=\"button\" class=\"button\" name=\"startButton\" value=\"もう一度引く\" onclick=\"retry()\" />";
           // 結果表示処理
           document.getElementById("scene").innerHTML = output;
@@ -184,7 +185,7 @@ img#result-img {
      // リトライ処理
      function retry() {
          document.getElementById("scene").innerHTML = `
-         <img id=\"start-img\" src=\"./images/usagi_top.png\">
+         <img id=\"start-img\" src=\"./images/hebi_top.png\">
          <input type=\"button\" class=\"button\" name=\"startButton\" value=\"おみくじを引く\" onclick=\"btnClick(this)\" />
          `;
      }
@@ -195,7 +196,7 @@ img#result-img {
 </head>
 <body>
 <div id="scene">
-    <img id="start-img" src="./images/usagi_top.png">
+    <img id="start-img" src="./images/hebi_top.png">
     <input type="button" class="button" name="startButton" value="おみくじを引く" onclick="btnClick(this)"/>
 </div>
 </body>
